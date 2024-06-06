@@ -6,6 +6,7 @@
     "spatie/ignition": "^1.14",
     "league/container": "^4.2",
     "adbario/php-dot-notation": "^3.3",
-    "vlucas/phpdotenv": "^5.6"
+    "vlucas/phpdotenv": "^5.6",
+    "laminas/laminas-diactoros": "^3.3"
   }
 }
