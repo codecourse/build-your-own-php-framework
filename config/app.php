@@ -3,7 +3,9 @@
 use App\Providers\AppServiceProvider;
 
 return [
-    'name' => 'No framework',
+    'name' => env('APP_NAME'),
+
+    'debug' => env('APP_DEBUG'),
 
     'providers' => [
         AppServiceProvider::class,

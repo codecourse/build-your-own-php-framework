@@ -5,6 +5,7 @@
   "require": {
     "spatie/ignition": "^1.14",
     "league/container": "^4.2",
-    "adbario/php-dot-notation": "^3.3"
+    "adbario/php-dot-notation": "^3.3",
+    "vlucas/phpdotenv": "^5.6"
   }
 }

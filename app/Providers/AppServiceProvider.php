@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Config\Config;
 use App\Core\Example;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
@@ -11,8 +12,9 @@ class AppServiceProvider extends AbstractServiceProvider implements BootableServ
 {
     public function boot(): void
     {
-        // @todo only do this when debug is enabled
-        Ignition::make()->register();
+        if ($this->getContainer()->get(Config::class)->get('app.debug')) {
+            Ignition::make()->register();
+        }
     }
 
     public function register(): void
