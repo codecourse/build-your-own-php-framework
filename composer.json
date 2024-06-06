@@ -3,6 +3,7 @@
     "psr-4": { "App\\": "app/" }
   },
   "require": {
-    "spatie/ignition": "^1.14"
+    "spatie/ignition": "^1.14",
+    "league/container": "^4.2"
   }
 }
