@@ -5,7 +5,7 @@
 
     <div>
         {% for user in users %}
-            <div>{{ user.name }}</div>
+            <div><a href="/users/{{ user.id }}">{{ user.name }}</a></div>
         {% endfor %}
     </div>
 {% endblock %}

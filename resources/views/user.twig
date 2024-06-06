@@ -1,0 +1,11 @@
+{% extends 'layouts/app.twig' %}
+
+{% block title %}{{ user.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ user.name }}</h1>
+
+    <div>
+        Some details about the user
+    </div>
+{% endblock %}
