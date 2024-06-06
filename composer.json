@@ -8,6 +8,7 @@
     "adbario/php-dot-notation": "^3.3",
     "vlucas/phpdotenv": "^5.6",
     "laminas/laminas-diactoros": "^3.3",
-    "league/route": "^5.1"
+    "league/route": "^5.1",
+    "laminas/laminas-httphandlerrunner": "^2.10"
   }
 }
