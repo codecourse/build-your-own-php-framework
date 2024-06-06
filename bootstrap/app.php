@@ -10,6 +10,7 @@ use App\Providers\ConfigServiceProvider;
 use Dotenv\Dotenv;
 use Laminas\Diactoros\Request;
 use League\Container\ReflectionContainer;
+use League\Route\Router;
 use Spatie\Ignition\Ignition;
 
 error_reporting(0);
@@ -29,11 +30,13 @@ foreach ($config->get('app.providers') as $provider) {
     $container->addServiceProvider(new $provider);
 }
 
-var_dump($container->get(Request::class)->getQueryParams());
-die();
-
 $app = new App();
 
-// register routes
+$router = $container->get(Router::class);
+
+$router->get('/', function () {
+    var_dump('home');
+    die();
+});
 
 $app->run();
