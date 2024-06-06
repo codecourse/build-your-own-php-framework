@@ -11,6 +11,9 @@
     "league/route": "^5.1",
     "laminas/laminas-httphandlerrunner": "^2.10",
     "twig/twig": "^3.0",
-    "illuminate/database": "^11.10"
+    "illuminate/database": "^10.0",
+    "illuminate/events": "^10.0",
+    "symfony/http-foundation": "^7.1",
+    "cartalyst/sentinel": "^7.0"
   }
 }
