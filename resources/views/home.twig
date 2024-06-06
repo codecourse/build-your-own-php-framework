@@ -1,7 +1,11 @@
-<h1>{{ name }}</h1>
+{% extends 'layouts/app.twig' %}
 
-<div>
-    {% for user in users %}
-        <div>{{ user.name }}</div>
-    {% endfor %}
-</div>
+{% block content %}
+    <h1>{{ name }}</h1>
+
+    <div>
+        {% for user in users %}
+            <div>{{ user.name }}</div>
+        {% endfor %}
+    </div>
+{% endblock %}
