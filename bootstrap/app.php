@@ -34,12 +34,6 @@ foreach ($config->get('app.providers') as $provider) {
 
 $app = new App($container);
 
-$app->getRouter()->get('/', function () {
-    $response = new Response();
-
-    $response->getBody()->write('<h1>Home</h1>');
-
-    return $response;
-});
+(require('../routes/web.php'))($app->getRouter(), $container);
 
 $app->run();
