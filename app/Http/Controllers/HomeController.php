@@ -21,7 +21,11 @@ class HomeController
 
         $response->getBody()->write(
             $this->view->render('home.twig', [
-                'name' => $this->config->get('app.name')
+                'name' => $this->config->get('app.name'),
+                'users' => [
+                    ['id' => 1, 'name' => 'Alex'],
+                    ['id' => 2, 'name' => 'Mabel'],
+                ]
             ])
         );
 
