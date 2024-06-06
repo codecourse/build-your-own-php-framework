@@ -17,10 +17,12 @@ require '../vendor/autoload.php';
 $container = Container::getInstance();
 $container->delegate(new ReflectionContainer());
 $container->addServiceProvider(new ConfigServiceProvider());
-$container->addServiceProvider(new AppServiceProvider());
 
-var_dump($container->get(Config::class)->get('app.name'));
-die();
+$config = $container->get(Config::class);
+
+foreach ($config->get('app.providers') as $provider) {
+    $container->addServiceProvider(new $provider);
+}
 
 $app = new App();
 
