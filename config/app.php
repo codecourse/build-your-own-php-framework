@@ -3,6 +3,7 @@
 use App\Providers\AppServiceProvider;
 use App\Providers\RequestServiceProvider;
 use App\Providers\RouteServiceProvider;
+use App\Providers\ViewServiceProvider;
 
 return [
     'name' => env('APP_NAME'),
@@ -13,5 +14,6 @@ return [
         AppServiceProvider::class,
         RequestServiceProvider::class,
         RouteServiceProvider::class,
+        ViewServiceProvider::class,
     ]
 ];
