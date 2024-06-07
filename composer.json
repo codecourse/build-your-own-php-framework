@@ -15,6 +15,7 @@
     "illuminate/events": "^10.0",
     "symfony/http-foundation": "^7.1",
     "cartalyst/sentinel": "^7.0",
-    "slim/csrf": "^1.4"
+    "slim/csrf": "^1.4",
+    "respect/validation": "^2.3"
   }
 }
