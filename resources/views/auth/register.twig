@@ -10,16 +10,25 @@
         <div>
             <label for="first_name">First name</label>
             <input type="text" id="first_name" name="first_name">
+            {% if errors.first_name %}
+                <div>{{ errors.first_name }}</div>
+            {% endif %}
         </div>
 
         <div>
             <label for="email">Email</label>
             <input type="text" id="email" name="email">
+            {% if errors.email %}
+                <div>{{ errors.email }}</div>
+            {% endif %}
         </div>
 
         <div>
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
+            {% if errors.password %}
+                <div>{{ errors.password }}</div>
+            {% endif %}
         </div>
 
         <button type="submit">Register</button>
