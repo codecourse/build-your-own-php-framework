@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Config\Config;
 use App\Views\View;
+use Cartalyst\Sentinel\Sentinel;
 use Laminas\Diactoros\Request;
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ServerRequestInterface;
@@ -11,7 +12,8 @@ use Psr\Http\Message\ServerRequestInterface;
 class RegisterController
 {
     public function __construct(
-        protected View $view
+        protected View $view,
+        protected Sentinel $auth
     ) {}
 
     public function index(ServerRequestInterface $request)
@@ -27,7 +29,10 @@ class RegisterController
 
     public function store(ServerRequestInterface $request)
     {
-        dump($request->getParsedBody());
-        die();
+        if ($user = $this->auth->registerAndActivate($request->getParsedBody())) {
+            $this->auth->login($user);
+        }
+
+        return new Response\RedirectResponse('/dashboard');
     }
 }
