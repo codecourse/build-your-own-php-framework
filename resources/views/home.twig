@@ -3,6 +3,10 @@
 {% block content %}
     <h1>{{ name }}</h1>
 
+    {% if message is defined %}
+        {{ message[0] }}
+    {% endif %}
+
     <div>
         {% for user in users %}
             <div><a href="/users/{{ user.id }}">{{ user.first_name }}</a></div>
