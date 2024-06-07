@@ -1,5 +1,12 @@
 <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/dashboard">Dashboard</a></li>
-    <li><a href="/register">Register</a></li>
+
+    {% if auth().check() %}
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li>{{ auth().user().first_name }}</li>
+    {% endif %}
+
+    {% if not auth().check() %}
+        <li><a href="/register">Register</a></li>
+    {% endif %}
 </ul>
