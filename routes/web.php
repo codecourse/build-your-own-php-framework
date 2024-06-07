@@ -11,6 +11,8 @@ use League\Route\Router;
 use Psr\Container\ContainerInterface;
 
 return static function (Router $router, ContainerInterface $container) {
+    $router->middleware($container->get('csrf'));
+
     $router->get('/', HomeController::class);
     $router->get('/dashboard', DashboardController::class);
 
