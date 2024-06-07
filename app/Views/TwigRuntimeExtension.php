@@ -5,6 +5,7 @@ namespace App\Views;
 use App\Config\Config;
 use Cartalyst\Sentinel\Sentinel;
 use Psr\Container\ContainerInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Twig\Extension\AbstractExtension;
 
 class TwigRuntimeExtension extends AbstractExtension
@@ -19,6 +20,11 @@ class TwigRuntimeExtension extends AbstractExtension
     public function auth()
     {
         return $this->container->get(Sentinel::class);
+    }
+
+    public function session()
+    {
+        return $this->container->get(Session::class);
     }
 
     public function csrf()

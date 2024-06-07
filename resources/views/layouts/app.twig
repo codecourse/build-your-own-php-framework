@@ -8,6 +8,10 @@
     <title>{% if block('title') is defined %}{{ block('title') }} | {% endif %} {{ config().get('app.name') }}</title>
 </head>
 <body>
+    {% if session().getFlashBag.get('message') is defined %}
+        {{ session().getFlashBag.get('message')[0] }}
+    {% endif %}
+
     <nav>
         {% include 'layouts/partials/navigation.twig' %}
     </nav>

@@ -15,8 +15,7 @@ class HomeController
 {
     public function __construct(
         protected Config $config,
-        protected View $view,
-        protected Session $session
+        protected View $view
     ) {}
 
     public function __invoke(ServerRequestInterface $request)
@@ -27,7 +26,6 @@ class HomeController
             $this->view->render('home.twig', [
                 'name' => $this->config->get('app.name'),
                 'users' => User::get(),
-                'message' => $this->session->getFlashBag()->get('message')
             ])
         );
 
