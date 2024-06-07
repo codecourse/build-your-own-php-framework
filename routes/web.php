@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -14,6 +15,9 @@ return static function (Router $router, ContainerInterface $container) {
 
     $router->get('/register', [RegisterController::class, 'index']);
     $router->post('/register', [RegisterController::class, 'store']);
+
+    $router->get('/login', [LoginController::class, 'index']);
+    $router->post('/login', [LoginController::class, 'store']);
 
     $router->get('/users/{user}', UserController::class);
 };
