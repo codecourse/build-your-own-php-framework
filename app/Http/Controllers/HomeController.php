@@ -25,7 +25,7 @@ class HomeController
         $response->getBody()->write(
             $this->view->render('home.twig', [
                 'name' => $this->config->get('app.name'),
-                'users' => User::get(),
+                'users' => User::paginate(1),
             ])
         );
 
