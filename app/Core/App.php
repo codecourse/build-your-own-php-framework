@@ -34,7 +34,7 @@ class App
         try {
             $response = $this->router->dispatch($this->request);
         } catch (\Throwable $e) {
-            $this->container->get(ExceptionHandler::class)
+            $response = $this->container->get(ExceptionHandler::class)
                 ->handle($this->request, $response, $e);
         }
 
