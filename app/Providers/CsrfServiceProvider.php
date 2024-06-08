@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Config\Config;
 use App\Core\Example;
+use App\Validation\Exceptions\CsrfTokenException;
 use Laminas\Diactoros\ResponseFactory;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
@@ -21,6 +22,10 @@ class CsrfServiceProvider extends AbstractServiceProvider implements BootableSer
     {
         $this->getContainer()->add('csrf', function () {
             $guard = new Guard(new ResponseFactory());
+
+            $guard->setFailureHandler(function () {
+                throw new CsrfTokenException();
+            });
 
             return $guard;
         })
