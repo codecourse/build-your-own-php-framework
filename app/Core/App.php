@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Exceptions\ExceptionHandler;
 use Laminas\Diactoros\Request;
 use Laminas\Diactoros\Response;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
@@ -33,7 +34,8 @@ class App
         try {
             $response = $this->router->dispatch($this->request);
         } catch (\Throwable $e) {
-            throw $e;
+            $this->container->get(ExceptionHandler::class)
+                ->handle($this->request, $response, $e);
         }
 
         (new SapiEmitter())->emit(
