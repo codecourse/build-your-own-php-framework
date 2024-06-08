@@ -41,4 +41,9 @@ class TwigRuntimeExtension extends AbstractExtension
             <input type="hidden" name="' . $guard->getTokenValueKey() .'" value="' . $guard->getTokenValue() . '">
         ';
     }
+
+    public function route(string $name, array $arguments = [])
+    {
+        return route($name, $arguments);
+    }
 }

@@ -1,5 +1,5 @@
 <ul>
-    <li><a href="/">Home</a></li>
+    <li><a href="{{ route('home') }}">Home</a></li>
 
     {% if auth().check() %}
         <li><a href="/dashboard">Dashboard</a></li>

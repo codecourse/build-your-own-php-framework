@@ -15,6 +15,7 @@ class TwigExtension extends AbstractExtension
             new TwigFunction('csrf', [TwigRuntimeExtension::class, 'csrf']),
             new TwigFunction('session', [TwigRuntimeExtension::class, 'session']),
             new TwigFunction('old', [TwigRuntimeExtension::class, 'old']),
+            new TwigFunction('route', [TwigRuntimeExtension::class, 'route']),
         ];
     }
 }

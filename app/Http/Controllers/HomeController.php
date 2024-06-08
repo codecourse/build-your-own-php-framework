@@ -20,15 +20,9 @@ class HomeController
 
     public function __invoke(ServerRequestInterface $request)
     {
-        $response = new Response();
-
-        $response->getBody()->write(
-            $this->view->render('home.twig', [
-                'name' => $this->config->get('app.name'),
-                'users' => User::paginate(1),
-            ])
-        );
-
-        return $response;
+        return view('home.twig', [
+            'name' => $this->config->get('app.name'),
+            'users' => User::paginate(1),
+        ]);
     }
 }
