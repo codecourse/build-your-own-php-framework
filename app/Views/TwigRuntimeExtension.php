@@ -12,6 +12,11 @@ class TwigRuntimeExtension extends AbstractExtension
 {
     public function __construct(protected ContainerInterface $container) {}
 
+    public function old(string $key)
+    {
+        return $this->session()->getFlashBag()->peek('old')[$key] ?? null;
+    }
+
     public function config()
     {
         return $this->container->get(Config::class);

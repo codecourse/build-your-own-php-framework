@@ -9,7 +9,7 @@
 
         <div>
             <label for="first_name">First name</label>
-            <input type="text" id="first_name" name="first_name">
+            <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}">
             {% if errors.first_name %}
                 <div>{{ errors.first_name }}</div>
             {% endif %}
@@ -17,7 +17,7 @@
 
         <div>
             <label for="email">Email</label>
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="email" value="{{ old('email') }}">
             {% if errors.email %}
                 <div>{{ errors.email }}</div>
             {% endif %}
