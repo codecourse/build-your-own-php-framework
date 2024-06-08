@@ -20,9 +20,6 @@ class HomeController
 
     public function __invoke(ServerRequestInterface $request)
     {
-        dump(name());
-        die();
-
         $response = new Response();
 
         $response->getBody()->write(

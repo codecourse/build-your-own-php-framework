@@ -1,6 +1,8 @@
 <?php
 
-function name()
+use App\Core\Container;
+
+function app(string $abstract)
 {
-    return 'Alex';
+    return Container::getInstance()->get($abstract);
 }
