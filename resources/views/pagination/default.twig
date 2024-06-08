@@ -1,0 +1,41 @@
+{% if paginator.hasPages() %}
+    <nav>
+        <ul class="pagination">
+            {% if paginator.onFirstPage() %}
+                <li>
+                    <span>&lsaquo;</span>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ paginator.previousPageUrl() }}">&lsaquo;</a>
+                </li>
+            {% endif %}
+
+            {% for element in elements %}
+                {% if element is not iterable %}
+                    <li><span>{{ element }}</span></li>
+                {% endif %}
+
+                {% if element is iterable %}
+                    {% for page, url in element %}
+                        {% if page == paginator.currentPage() %}
+                            <li class="active"><span>{{ page }}</span></li>
+                        {% else %}
+                            <li><a href="{{ url }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+
+            {% if paginator.hasMorePages() %}
+                <li>
+                    <a href="{{ paginator.nextPageUrl() }}">&rsaquo;</a>
+                </li>
+            {% else %}
+                <li>
+                    <span>&rsaquo;</span>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}

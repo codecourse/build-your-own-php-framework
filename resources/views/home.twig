@@ -4,8 +4,12 @@
     <h1>{{ name }}</h1>
 
     <div>
-        {% for user in users %}
-            <div><a href="/users/{{ user.id }}">{{ user.first_name }}</a></div>
-        {% endfor %}
+        {% if users is not empty %}
+            {% for user in users %}
+                <div><a href="/users/{{ user.id }}">{{ user.first_name }}</a></div>
+            {% endfor %}
+
+            {{ users.links() | raw }}
+        {% endif %}
     </div>
 {% endblock %}

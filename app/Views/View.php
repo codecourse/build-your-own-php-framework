@@ -13,6 +13,11 @@ class View
         return $this->twig->getLoader()->exists($view);
     }
 
+    public function make(string $view, array $data = [])
+    {
+        return $this->render($view, $data);
+    }
+
     public function render(string $view, array $data = [])
     {
         return $this->twig->render($view, $data);
